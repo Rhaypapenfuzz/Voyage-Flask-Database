@@ -19,5 +19,5 @@ def views(bp):
     def _get_all_who_sailed():
         with get_db() as conn:
             rows = who_sailed(conn)
-
-        return render_template("table.html", name="Sailors who sailed this Boat", rows=rows)
+            boat_name = request.args.get("boat-name")
+        return render_template("table.html", name="Sailors who sailed " + boat_name, rows=rows)
