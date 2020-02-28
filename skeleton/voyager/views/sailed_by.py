@@ -10,7 +10,7 @@ from voyager.db import get_db, execute
 def sailed_by(conn):
 	sailor_name = request.args.get("sailor-name")
 	print(sailor_name)
-	return execute(conn, "SELECT DISTINCT b.bid, b.name, b.color \
+	return execute(conn, "SELECT DISTINCT b.bid as Bid, b.name as Name, b.color as Color \
 		FROM Boats As b JOIN Voyages as v on b.bid = v.bid JOIN Sailors as s on v.sid = s.sid \
 		Where s.name = (?)", (sailor_name,))
 

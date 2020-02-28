@@ -10,7 +10,7 @@ from voyager.db import get_db, execute
 def who_sailed_on_date(conn):
 	date = request.args.get("date")
 	print(date)
-	return execute(conn,  "SELECT DISTINCT s.name \
+	return execute(conn,  "SELECT DISTINCT s.sid as Sid, s.name as Name \
         FROM Sailors As s JOIN Voyages as v on s.sid = v.sid \
         Where v.date_of_voyage = (?)", (date,))
 
