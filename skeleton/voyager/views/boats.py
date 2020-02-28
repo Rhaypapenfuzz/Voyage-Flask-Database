@@ -8,7 +8,6 @@ from flask import escape
 from voyager.db import get_db, execute
 
 def boats(conn):
-	#return execute(conn, "DELETE FROM Boats as b WHERE b.color = 'None' ")
     return execute(conn, "SELECT b.bid as Bid, b.name as Name, b.color as Color FROM Boats AS b")
 
 def addBoat(conn):
